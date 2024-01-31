@@ -130,13 +130,13 @@ exports.getSlugMenu = asyncHandler(async (req, res) => {
   let news = null;
   let position = null;
 
-  childeMenus = await Menu.find({}).where('parentId').in(menu._id);
+  childeMenus = await Menu.find({ status: true }).where('parentId').in(menu._id);
   if (menu.parentId && menu.parentId) {
-    sameParentMenus = await Menu.find({}).where('parentId').in(menu.parentId);
+    sameParentMenus = await Menu.find({ status: true }).where('parentId').in(menu.parentId);
     parentMenu = await Menu.findById(menu.parentId);
   }
 
-  let page = await Page.find({}).where('menu').in(menu._id);
+  let page = await Page.find({ status: true }).where('menu').in(menu._id);
   if (valueRequired(page)) {
     news = await News.find({}).where('categories').in(page[0].categories);
     position = await Employee.find({}).where('positions').in(page[0].position);

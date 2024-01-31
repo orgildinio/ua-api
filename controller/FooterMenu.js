@@ -236,9 +236,9 @@ exports.getSlugMenu = asyncHandler(async (req, res) => {
   let news = null;
   let position = null;
 
-  childeMenus = await FooterMenu.find({}).where('parentId').in(menu._id);
+  childeMenus = await FooterMenu.find({ status: true }).where('parentId').in(menu._id);
   if (menu.parentId && FooterMenu.parentId) {
-    sameParentMenus = await FooterMenu.find({}).where('parentId').in(menu.parentId);
+    sameParentMenus = await FooterMenu.find({ status: true }).where('parentId').in(menu.parentId);
     parentMenu = await FooterMenu.findById(menu.parentId);
   }
 
