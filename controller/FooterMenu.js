@@ -213,6 +213,8 @@ exports.updateMenu = asyncHandler(async (req, res) => {
     req.body.slug = slugify(name);
   }
 
+  console.log(req.body);
+
   const category = await FooterMenu.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
     runValidators: true,
