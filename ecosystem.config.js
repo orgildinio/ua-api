@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: "naog-cms-api",
+      name: "naog-cms-api-v1.0.2",
       script: "npm start",
       args: ["--color"],
       env: {
