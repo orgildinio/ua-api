@@ -4,6 +4,7 @@ const { valueRequired } = require("../lib/check");
 const FooterMenu = require("../models/FooterMenu");
 const { slugify } = require("transliteration");
 const Page = require("../models/Page");
+const Employee = require('../models/Employees')
 
 exports.createMenu = asyncHandler(async (req, res) => {
   const language = req.cookies.language || "mn";
