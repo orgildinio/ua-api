@@ -37,6 +37,7 @@ const fastLinkRouter = require("./routes/FastLink");
 const socialLinkRouters = require("./routes/SocialLink");
 const footerRouters = require("./routes/Footer");
 const webInfoRouters = require("./routes/Webinfo");
+const adsRouters = require("./routes/Adsies");
 
 dotenv.config({ path: "./config/config.env" });
 const app = express();
@@ -54,7 +55,6 @@ var whitelist = [
   "http://www.naog.gov.mn",
   "https://naog-admin.lvg.mn",
   "https://adw.naog.edu.mn",
-
 ];
 
 // Өөр домэйн дээр байрлах клиент вэб аппуудаас шаардах шаардлагуудыг энд тодорхойлно
@@ -106,6 +106,7 @@ app.use(morgan("combined", { stream: accessLogStream }));
 
 // REST API RESOURSE
 app.use("/api/v1/users", userRouters);
+app.use("/api/v1/adsies", adsRouters);
 app.use("/api/v1/banners", bannerRouters);
 app.use("/api/v1/news", newsRouters);
 app.use("/api/v1/media", mediaRouters);
